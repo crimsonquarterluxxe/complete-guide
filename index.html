@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Quarter NOLA Dive Bar Guide - Complete Digital Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #2c1810 0%, #8b4513 100%);
+            color: #f4f4f4;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            border: 2px solid #d4af37;
+        }
+        
+        .header h1 {
+            color: #d4af37;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            color: #ccc;
+            font-style: italic;
+        }
+        
+        .quick-nav {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .nav-button {
+            background: linear-gradient(145deg, #d4af37, #b8941f);
+            color: #000;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        .tier-section {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid #d4af37;
+        }
+        
+        .tier-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .tier-icon {
+            font-size: 2em;
+            margin-right: 15px;
+        }
+        
+        .tier-title {
+            color: #d4af37;
+            font-size: 1.8em;
+            margin: 0;
+        }
+        
+        .tier-description {
+            color: #ccc;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .bar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .bar-card {
+            background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #444;
+            transition: all 0.3s ease;
+        }
+        
+        .bar-card:hover {
+            transform: translateY(-3px);
+            border-color: #d4af37;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+        }
+        
+        .bar-name {
+            color: #d4af37;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .bar-address {
+            color: #bbb;
+            margin-bottom: 8px;
+        }
+        
+        .bar-neighborhood {
+            background: rgba(212, 175, 55, 0.2);
+            color: #d4af37;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .bar-specialty {
+            color: #f4f4f4;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .bar-notes {
+            color: #ccc;
+            font-size: 0.95em;
+            font-style: italic;
+        }
+        
+        .legend {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .legend-items {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .emergency-section {
+            background: rgba(139, 69, 19, 0.3);
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .emergency-section h3 {
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+        
+        .emergency-contacts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .contact-item {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .contact-label {
+            color: #d4af37;
+            font-weight: bold;
+        }
+        
+        .contact-info {
+            color: #f4f4f4;
+            font-size: 1.1em;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .bar-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .legend-items {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍺 Complete Dive Bar Guide</h1>
+            <p>Your ultimate resource for New Orleans wedding party adventures</p>
+        </div>
+
+        <div class="quick-nav">
+            <a href="#tier1" class="nav-button">👑 Wedding Favorites</a>
+            <a href="#tier2" class="nav-button">❤️ Neighborhood Hearts</a>
+            <a href="#tier3" class="nav-button">🎯 Deep Discoveries</a>
+            <a href="#emergency" class="nav-button">🚨 Emergency Info</a>
+        </div>
+
+        <div class="legend">
+            <h3 style="color: #d4af37; margin-bottom: 15px;">Tier Legend</h3>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <span style="font-size: 1.5em;">👑</span>
+                    <span><strong>Tier 1:</strong> Wedding Party Favorites (7 bars)</span>
+                </div>
+                <div class="legend-item">
+                    <span style="font-size: 1.5em;">❤️</span>
+                    <span><strong>Tier 2:</strong> Neighborhood Hearts (8 bars)</span>
+                </div>
+                <div class="legend-item">
+                    <span style="font-size: 1.5em;">🎯</span>
+                    <span><strong>Tier 3:</strong> Deep Dive Discoveries (8 bars)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tier 1: Wedding Party Favorites -->
+        <div id="tier1" class="tier-section">
+            <div class="tier-header">
+                <span class="tier-icon">👑</span>
+                <h2 class="tier-title">Tier 1: Wedding Party Favorites</h2>
+            </div>
+            <p class="tier-description">Perfect for bachelor/bachelorette parties. Instagram-worthy, crowd-pleasing, and memorable experiences.</p>
+            
+            <div class="bar-grid">
+                <div class="bar-card">
+                    <div class="bar-name">1. Lafitte's Blacksmith Shop Bar</div>
+                    <div class="bar-address">📍 941 Bourbon Street</div>
+                    <div class="bar-neighborhood">French Quarter</div>
+                    <div class="bar-specialty">🏴‍☠️ Historic Pirate Den, Mystery Drink</div>
+                    <div class="bar-notes">Candlelit, romantic, Instagram-perfect atmosphere</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">2. Port of Call</div>
+                    <div class="bar-address">📍 838 Esplanade Avenue</div>
+                    <div class="bar-neighborhood">French Quarter</div>
+                    <div class="bar-specialty">🍔 Massive Burgers, Monsoon Cocktails</div>
+                    <div class="bar-notes">Warning: portions are enormous</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">3. The Abbey</div>
+                    <div class="bar-address">📍 1123 Decatur Street</div>
+                    <div class="bar-neighborhood">French Quarter</div>
+                    <div class="bar-specialty">⛪ Gothic Church, Absinthe Rituals</div>
+                    <div class="bar-notes">Multiple levels, dramatic photos</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">4. Cooter Brown's</div>
+                    <div class="bar-address">📍 509 S Carrollton Avenue</div>
+                    <div class="bar-neighborhood">Uptown</div>
+                    <div class="bar-specialty">🦪 Fresh Oysters, Beer Selection</div>
+                    <div class="bar-notes">Upstairs deck, streetcar views</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">5. Kingpin</div>
+                    <div class="bar-address">📍 1307 Lyons Street</div>
+                    <div class="bar-neighborhood">Bywater</div>
+                    <div class="bar-specialty">🎳 Bowling + Cocktails</div>
+                    <div class="bar-notes">Call ahead for lane reservations</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">6. Igor's Lounge & Game Room</div>
+                    <div class="bar-address">📍 2133 St. Charles Avenue</div>
+                    <div class="bar-neighborhood">Garden District</div>
+                    <div class="bar-specialty">🕰️ 24-Hour, Checkered Floor</div>
+                    <div class="bar-notes">Famous Instagram floor</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">7. Parasol's</div>
+                    <div class="bar-address">📍 2533 Constance Street</div>
+                    <div class="bar-neighborhood">Irish Channel</div>
+                    <div class="bar-specialty">🥪 Best Po-Boys, Irish Heritage</div>
+                    <div class="bar-notes">Local working-class crowd</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tier 2: Neighborhood Hearts -->
+        <div id="tier2" class="tier-section">
+            <div class="tier-header">
+                <span class="tier-icon">❤️</span>
+                <h2 class="tier-title">Tier 2: Neighborhood Hearts</h2>
+            </div>
+            <p class="tier-description">Authentic local experiences with community traditions and genuine New Orleans culture.</p>
+            
+            <div class="bar-grid">
+                <div class="bar-card">
+                    <div class="bar-name">8. Snake & Jake's Christmas Club</div>
+                    <div class="bar-address">📍 7612 Oak Street</div>
+                    <div class="bar-neighborhood">Carrollton</div>
+                    <div class="bar-specialty">🎄 Christmas Year-Round, Tiny Space</div>
+                    <div class="bar-notes">Cash only, impossibly small</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">9. Vaughan's Lounge</div>
+                    <div class="bar-address">📍 4229 Dauphine Street</div>
+                    <div class="bar-neighborhood">Bywater</div>
+                    <div class="bar-specialty">🎷 Jazz Shrine, Outdoor BBQ</div>
+                    <div class="bar-notes">Legendary music venue</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">10. The R Bar</div>
+                    <div class="bar-address">📍 1431 Royal Street</div>
+                    <div class="bar-neighborhood">Marigny</div>
+                    <div class="bar-specialty">🎺 Brass Band HQ, Live Music</div>
+                    <div class="bar-notes">Thursday: Treme Brass Band</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">11. Markey's Bar</div>
+                    <div class="bar-address">📍 640 Louisa Street</div>
+                    <div class="bar-neighborhood">Bywater</div>
+                    <div class="bar-specialty">🏠 Neighborhood Institution</div>
+                    <div class="bar-notes">Sunday: Free red beans & rice</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">12. The Joint</div>
+                    <div class="bar-address">📍 701 Mazant Street</div>
+                    <div class="bar-neighborhood">Bywater</div>
+                    <div class="bar-specialty">🍖 BBQ + Bourbon, Picnic Tables</div>
+                    <div class="bar-notes">Communal seating encourages conversation</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">13. Molly's at the Market</div>
+                    <div class="bar-address">📍 1107 Decatur Street</div>
+                    <div class="bar-neighborhood">French Quarter</div>
+                    <div class="bar-specialty">📰 Journalist Haven, Frozen Irish Coffee</div>
+                    <div class="bar-notes">Newspaper-covered walls</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">14. Coop's Place</div>
+                    <div class="bar-address">📍 1109 Decatur Street</div>
+                    <div class="bar-neighborhood">French Quarter</div>
+                    <div class="bar-specialty">🍲 Creole Food, Rabbit Gumbo</div>
+                    <div class="bar-notes">More restaurant than bar</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">15. Pal's Lounge</div>
+                    <div class="bar-address">📍 949 Harrison Avenue</div>
+                    <div class="bar-neighborhood">Lakeview</div>
+                    <div class="bar-specialty">🌊 Hurricane Katrina Comeback Story</div>
+                    <div class="bar-notes">Community resilience symbol</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tier 3: Deep Dive Discoveries -->
+        <div id="tier3" class="tier-section">
+            <div class="tier-header">
+                <span class="tier-icon">🎯</span>
+                <h2 class="tier-title">Tier 3: Deep Dive Discoveries</h2>
+            </div>
+            <p class="tier-description">For experienced adventurers seeking authentic, unfiltered New Orleans dive culture.</p>
+            
+            <div class="bar-grid">
+                <div class="bar-card">
+                    <div class="bar-name">16. Johnny White's Sports Bar</div>
+                    <div class="bar-address">📍 720 Bourbon Street</div>
+                    <div class="bar-neighborhood">French Quarter</div>
+                    <div class="bar-specialty">⏰ Never Closed, Survived Katrina</div>
+                    <div class="bar-notes">24/7, authentic dive atmosphere</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">17. The Dungeon</div>
+                    <div class="bar-address">📍 738 Toulouse Street</div>
+                    <div class="bar-neighborhood">French Quarter</div>
+                    <div class="bar-specialty">🦇 Gothic Underground, Alternative Crowd</div>
+                    <div class="bar-notes">Basement location, goth community</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">18. Bud Rip's</div>
+                    <div class="bar-address">📍 1025 Esplanade Avenue</div>
+                    <div class="bar-neighborhood">Treme</div>
+                    <div class="bar-specialty">🎭 Most Authentic Dive, Local Community</div>
+                    <div class="bar-notes">Respect required, not tourist-friendly</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">19. The Saint</div>
+                    <div class="bar-address">📍 961 St. Mary Street</div>
+                    <div class="bar-neighborhood">Irish Channel</div>
+                    <div class="bar-specialty">🎸 Punk Rock Venue, Live Shows</div>
+                    <div class="bar-notes">Check Facebook for show schedule</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">20. Ms. Mae's</div>
+                    <div class="bar-address">📍 4336 Magazine Street</div>
+                    <div class="bar-neighborhood">Uptown</div>
+                    <div class="bar-specialty">🌙 24-Hour Service, Night Shift Crowd</div>
+                    <div class="bar-notes">Diverse clientele at all hours</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">21. Tracey's</div>
+                    <div class="bar-address">📍 2604 Magazine Street</div>
+                    <div class="bar-neighborhood">Irish Channel</div>
+                    <div class="bar-specialty">🏈 Sports Bar, Po-Boys</div>
+                    <div class="bar-notes">Saints game day essential</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">22. Bruno's Tavern</div>
+                    <div class="bar-address">📍 7601 Maple Street</div>
+                    <div class="bar-neighborhood">Carrollton</div>
+                    <div class="bar-specialty">🎓 College + Locals Mix</div>
+                    <div class="bar-notes">Near Tulane, generational bridge</div>
+                </div>
+
+                <div class="bar-card">
+                    <div class="bar-name">23. 13 Monaghan</div>
+                    <div class="bar-address">📍 517 Frenchmen Street</div>
+                    <div class="bar-neighborhood">Marigny</div>
+                    <div class="bar-specialty">🎵 Frenchmen Street Dive</div>
+                    <div class="bar-notes">Base camp for music crawl</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Emergency Information -->
+        <div id="emergency" class="emergency-section">
+            <h3>🚨 Emergency Information & Resources</h3>
+            <div class="emergency-contacts">
+                <div class="contact-item">
+                    <div class="contact-label">Emergency Services</div>
+                    <div class="contact-info">📞 911</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Crimson Quarter Support</div>
+                    <div class="contact-info">📞 [Your Phone Number]</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">United Cab</div>
+                    <div class="contact-info">📞 (504) 522-9771</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Nearest Hospital</div>
+                    <div class="contact-info">🏥 Tulane Medical Center<br>1415 Tulane Ave</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">NOPD French Quarter</div>
+                    <div class="contact-info">📞 (504) 658-6080</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Poison Control</div>
+                    <div class="contact-info">📞 1-800-222-1222</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
